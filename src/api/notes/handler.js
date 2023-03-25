@@ -143,7 +143,7 @@ class NotesHandler {
         status: 'fail',
         message: 'Maaf, terjadi kegagalan pada server kami.',
       });
-      response.code(500);
+      response.code(500n);
       return response;
     }
   }
