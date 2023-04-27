@@ -24,7 +24,6 @@ class UsersHandler {
       response.code(201);
       return response;
     } catch (error) {
-      console.log(error);
       throw new ClientError(error.message, error.statusCode);
     }
   }
@@ -42,7 +41,6 @@ class UsersHandler {
         },
       };
     } catch (error) {
-      console.log(error);
       throw new ClientError(error.message, error.statusCode);
     }
   }
