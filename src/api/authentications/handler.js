@@ -32,7 +32,6 @@ class AuthenticationsHandler {
       response.code(201);
       return response;
     } catch (error) {
-      console.log(error);
       throw new ClientError(error.message, error.statusCode);
     }
   }
@@ -40,7 +39,6 @@ class AuthenticationsHandler {
   async putAuthenticationHandler(request, h) {
     try {
       this._validator.validatePutAuthenticationPayload(request.payload);
-      console.log(request.payload);
 
       const {refreshToken} = request.payload;
       await this._authenticationsService.verifyRefreshToken(refreshToken);
