@@ -43,6 +43,23 @@ class UsersHandler {
       throw new ClientError(error.message, error.statusCode);
     }
   }
+
+  async getUsersByUsername(request) {
+    try {
+      const {username = ''} = request.query;
+      const users = await this._service.getUsersByUsername(username);
+
+      return {
+        status: 'success',
+        data: {
+          users,
+        },
+      };
+    } catch (error) {
+      console.log(error);
+      throw new ClientError(error.message, error.statusCode);
+    }
+  }
 }
 
 module.exports = UsersHandler;
